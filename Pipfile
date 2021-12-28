@@ -5,6 +5,15 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-filter = "*"
+django-storages = "*"
+gunicorn = "*"
+pillow = "*"
+psycopg2 = "*"
+whitenoise = "*"
+urllib3 = "*"
+boto3 = "*"
+sqlparse = "*"
 
 [dev-packages]
 
