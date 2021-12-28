@@ -1,0 +1,46 @@
+{% load static %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pushster&display=swap');
+  .hello-msg{
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    margin-right: 20px;
+  }
+  
+  .logo{
+    font-family: 'Pushster', cursive;
+    font-size: 40px;
+  }
+
+  a:link,a:visited  {
+  color: #000;
+  text-decoration: none;
+  }
+  
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light  align-middle border-bottom">
+  <div class="container-fluid">
+    <div class="logo me-2 nav-item "><a href=" {% url 'home' %}" class="text-decoration-none ">Boat Company</a></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+        {% if request.user.is_staff %}
+        <li class="nav-item ">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Dashboard</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link active" aria-current="page" href="{% url 'products' %}">Product</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link flex-grow-1" href="{% url 'account' %}">Settings</a>
+        </li>
+        {% endif %}
+      </ul>
+        <span class="hello-msg ">Hello, {{request.user}}</span>
+        <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+    
+    </div>
+    </div>
+  </div>
+</nav>
