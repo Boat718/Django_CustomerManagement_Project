@@ -92,12 +92,7 @@ DATABASES = {
         # 'PORT':'5432'
         
         # AWS
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Demo_2',
-        'USER':'postgres',
-        'PASSWORD':'password',
-        'HOST':'database-2.cnusvd8eueik.us-east-1.rds.amazonaws.com',
-        'PORT':'5434'
+        
     }
 }
 
