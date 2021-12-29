@@ -1,0 +1,81 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+<div class="row mt-4">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Customer: {{customer.name}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
+			<a class="btn btn-outline-info  btn-sm btn-block mt-2" href="{% url 'createorder' customer.id %}">Place Order</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{customer.email}} </p>
+			<p>Phone: {{customer.phone}} </p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px"> {{order_count }}</h1>
+		</div>
+	</div>
+</div>
+
+<div class="row mt-4">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+				{{myFilter.form}}
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+
+<div class="row mt-4 ">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Category</th>
+					<th>Date Orderd</th>
+					<th>Note</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for o in order %}
+					<tr>
+						<td>{{o.product}}</td>
+						<td>{{o.product.category}}</td>
+						<td>{{o.date}}</td>
+						<td>{{o.note}}</td>
+						<td>{{o.status}}</td>
+						<td><a href="{% url 'updateorder' o.id %}" class="btn btn-sm btn-warning">Update</a></td>
+						<td>
+							<button type="button" class="btn btn-sm btn-danger"
+							data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+								Remove
+							</button>
+						</td>
+						<!-- Modal -->
+                        {% include "accounts/delete.html" %}
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
