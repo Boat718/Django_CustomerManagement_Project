@@ -1,1 +1,1 @@
-web: gunicorn crm1.wsgi --log-file - --bind 0.0.0.0:$PORT
+web: gunicorn myproject.wsgi --timeout 30 --keep-alive 5 --log-level debug
