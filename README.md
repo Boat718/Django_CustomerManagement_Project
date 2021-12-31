@@ -1,5 +1,6 @@
 # Django_CutomerManagement_Project
 
-   Customer
+   Customer:
    
-    -username: test password: asdzxcasd
+      username: test 
+      password: asdzxcasd
